@@ -1,6 +1,6 @@
 [project]
 name = "mm-cryptography"
-version = "0.0.1"
+version = "0.0.2"
 description = "Python cryptography library with two independent modules: OpenSSL-compatible AES-256-CBC encryption and Fernet symmetric encryption"
 requires-python = ">=3.13"
 dependencies = ["cryptography~=45.0.3"]
