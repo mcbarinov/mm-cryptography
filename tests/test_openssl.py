@@ -1,4 +1,6 @@
 import base64
+import shlex
+import subprocess
 from pathlib import Path
 
 import pytest
@@ -374,8 +376,6 @@ Line 4"""
     )
     def test_openssl_compatibility_encrypt_our_decrypt_openssl(self) -> None:
         """Test that data encrypted by our class can be decrypted by OpenSSL command."""
-        import shlex
-        import subprocess
 
         cipher = OpensslAes256Cbc("test_password_123")
         original_data = "Hello OpenSSL compatibility test! 🔐"
@@ -400,8 +400,6 @@ Line 4"""
     )
     def test_openssl_compatibility_encrypt_openssl_decrypt_our(self) -> None:
         """Test that data encrypted by OpenSSL command can be decrypted by our class."""
-        import shlex
-        import subprocess
 
         cipher = OpensslAes256Cbc("test_password_456")
         original_data = "OpenSSL to Python test! 🚀"
@@ -426,8 +424,6 @@ Line 4"""
     )
     def test_openssl_compatibility_roundtrip_various_data(self) -> None:
         """Test OpenSSL compatibility with various data types."""
-        import shlex
-        import subprocess
 
         test_cases = [
             ("simple_text", "Simple ASCII text"),
@@ -458,8 +454,6 @@ Line 4"""
     )
     def test_openssl_compatibility_multiline_data(self) -> None:
         """Test OpenSSL compatibility with multiline data."""
-        import shlex
-        import subprocess
 
         cipher = OpensslAes256Cbc("multiline_test_password")
         original_data = "Line 1\nLine 2\nLine 3 with unicode: тест"
@@ -483,8 +477,6 @@ Line 4"""
     )
     def test_openssl_compatibility_empty_data(self) -> None:
         """Test OpenSSL compatibility with empty data."""
-        import shlex
-        import subprocess
 
         cipher = OpensslAes256Cbc("empty_test_password")
         original_data = ""
@@ -506,8 +498,6 @@ Line 4"""
     )
     def test_openssl_compatibility_wrong_password(self) -> None:
         """Test that OpenSSL and our class both fail with wrong password."""
-        import shlex
-        import subprocess
 
         cipher = OpensslAes256Cbc("correct_password")
         original_data = "Secret message"
@@ -533,8 +523,6 @@ Line 4"""
     )
     def test_openssl_compatibility_long_text_with_line_breaks(self, tmp_path: Path) -> None:
         """Test OpenSSL compatibility with long text that produces base64 with line breaks."""
-        import shlex
-        import subprocess
 
         cipher = OpensslAes256Cbc("long_text_password")
 
